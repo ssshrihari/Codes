@@ -1,0 +1,24 @@
+Given two strings find the common substring with maximum length if you find more than one return the one which is alphabetically first
+
+Author:Shrihari Shetty
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the countingValleys function below.
+def countingValleys(s1, s2):
+    final = [s1[i:b+1] for i in range(len(s1)) for b in range(len(s1))]
+    a=sorted([i for i in final if i in s1 and i in s2 and len(i) > 1 ],key=len)
+    x=len(a[-1])
+    fin=sorted([i for i in a if len(i)==x])
+    return fin[0]
+    
+s1 = input()
+s2 = input()
+
+result = countingValleys(s1, s2)
+print(result)
