@@ -1,0 +1,31 @@
+
+
+Given A palindrome,modify only a single charcter to make it a 
+     1.Non Palindrome
+     2.lower lexicographically than initial string
+     3.lowest value string lexicographically created
+Author:Shrihari SHetty
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+def minimumDistances(a):
+    c=a[0]
+    x=0
+    for i in a:
+        if c!=i:
+            x=1
+            break;
+    if(x==0):
+        return "IMPOSSIBLE"
+    for i in range(0,len(a)):
+        if ord(a[i])!=ord('a'):
+                    x=list(a)
+                    x[i]='a'
+                    break
+    return x                    
+a=input()
+result = minimumDistances(a)
+print(*result,sep="")
