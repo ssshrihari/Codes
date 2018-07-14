@@ -1,0 +1,20 @@
+
+Determine the number of Distinct subaarays that can be formed having atmost k odd elements in them. 
+AUthor:Shrihari Shetty
+
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+def minimumDistances(a,n):
+    for w in range(1, len(a)+1):
+        for i in range(len(a)-w+1):
+            if n>=len([n for n in a[i:i+w] if n%2]):
+                count+=1
+return count                
+n = int(input())
+a = list(map(int, input().rstrip().split()))
+result = minimumDistances(a,n)
+print(result)
