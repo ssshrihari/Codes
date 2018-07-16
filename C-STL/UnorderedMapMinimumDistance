@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+#include<limits.h>
+#include<algorithm>
+using namespace std;
+
+int main(){
+    int n,i,temp,minn=INT_MAX,got=0;
+    cin>>n;
+    std::unordered_map<int,int>a;
+    std::unordered_map<int,int>::iterator it;
+    for(i=0;i<n;i++){
+        cin>>temp;
+        it=a.find(temp);
+        if(it==a.end())
+            a.insert(make_pair(temp,i));
+        else{
+           if(it->second!=-1){
+                minn=min(minn,abs(it->second-i));
+                it->second=-1;
+               got=1;
+           }
+        }    
+    }
+    if(got==0)
+        printf("-1\n");
+    else
+        printf("%d\n",minn);
+    return 0;
+}
